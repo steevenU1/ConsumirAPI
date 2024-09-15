@@ -1,37 +1,127 @@
-
   body{
-    text-align:center;
-  }
-  body:before{
-    content:'';
-    height:100%;
-    display:inline-block;
-    vertical-align:middle;
+  background-color: #919CE6;
   }
 
-  main{
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html{
+    font-size: 62.5%;
+    font-family: "Lexend Deca", system-ui;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+
+  .main-title{
+    margin-top: 20px;
+    font-size: 4.5rem;
+    text-align: center;
+  }
+
+  .main-header{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-evenly;
+    margin: 30px 30px 50px 30px;
+    
   }
 
-  .cat-container{
-    width: 600px;
-    height: 500px;
+  .main-header h2{
+    font-size: 2.5rem;
+  }
+
+  .main-header button {
+    border: none;
+    padding: 5px;
+    background-color: #E691CB;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 23px 22px 34px -8px rgba(0,0,0,0.75);
+  }
+  
+
+  
+
+  .random-cat-container{
+    width: 100%;
+    height: auto;
     display: flex;
-    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: #D3C0E6;
+    padding: 15px;
+    justify-self: center;
+    flex-wrap: wrap;
   }
 
+  .michiCard{
+    width: 250px;
+    height: 250px;
+    position: relative;
+    background-color: #A191E6;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 10px -7px 24px -7px rgba(0,0,0,0.75);
+    margin: 15px;
+  }
 
-  .cat-container img{
+  .michiCard img{
     width: 100%;
     height: 100%;
     object-fit: contain;
   }
 
+  .plus-btn{
+    width: 30px;
+    height: 30px;
+    border: none;
+    padding: 5px;
+    background-color: #D3C0E6;
+    border-radius: 100px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+  }
 
-  button{
+
+
+  .randomMichis{
+    margin-bottom: 60px;
+  }
+
+  .favoriteMichis{
+    margin-bottom: 50px;
+  }
+
+  .fv-header{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 30px 30px 50px 30px;
+    font-size: 2.5rem;
+  }
+
+  .dlt-btn{
+    width: 30px;
+    height: 30px;
+    border: none;
+    padding: 5px;
+    background-color: #D891E6;
+    border-radius: 100px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+  }
+
+  
+
+
+  /* button{
     background:#1AAB8A;
     color:#fff;
     border:none;
@@ -66,4 +156,15 @@
   button:hover:before,button:hover:after{
     width:100%;
     transition:800ms ease all;
+  } */
+
+  @media (max-width: 768px){
+    .random-cat-container{
+      width: 100%;
+      height: auto;
+      flex-wrap: wrap;
+    }
+    .michiCard{
+      margin: 15px;
+    }
   }

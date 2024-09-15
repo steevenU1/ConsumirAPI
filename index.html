@@ -5,19 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Gatitos</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <main>
-        <div class="cat-container">
-            <h1>Gatitos Aleatorios</h1>
+    <h1 class="main-title">Colecciona Michis</h1>
+    <span id="error"></span>
 
-            <img alt="Foto gatito aleatorio">
+
+    <section class="randomMichis">
+
+        <div class="main-header">
+            <h2>Gatitos para coleccionar</h2>
+            <div class="btn-container"></div>
+                <button id="rn-btn">Nuevos gatitos</button>
+            </div>
         </div>
 
-        <div class="btn-container">
-            <button id="boton">Nuevo gatito</button>
-        </div>
-    </main>    
+        <div class="random-cat-container">
+            <article class="michiCard">
+                <img id="img1" onclick="saveFavMichis()" alt="Foto gatito aleatorio">
+                <button id="plus1" class="plus-btn">+</button>
+            </article>
+            <article class="michiCard">
+                <img id="img2" onclick="saveFavMichis()" alt="Foto gatito aleatorio">
+                <button id="plus2" class="plus-btn">+</button>
+            </article>    
+            <article class="michiCard">
+                <img id="img3" onclick="saveFavMichis()" alt="Foto gatito aleatorio">
+                <button id="plus3" class="plus-btn">+</button>
+            </article> 
+            <article class="michiCard">
+                <img id="img4" onclick="saveFavMichis()" alt="Foto gatito aleatorio">
+                <button id="plus4" class="plus-btn">+</button>
+            </article>  
+        </div>    
+    </section>
+    
+    <section class="favoriteMichis" >
+        <h2 class="fv-header">Mi Colección</h2>
+        <div class="random-cat-container" id="favoriteMichis">
+            
+        </div>    
+    </section>
+
+
+
+
     <script src="./main.js"></script>
 </body>
 </html>

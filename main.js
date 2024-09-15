@@ -2,6 +2,8 @@ const API_URL = "https://api.thecatapi.com/v1/images/search?limit=4";
 
 const FAV_URL = "https://api.thecatapi.com/v1/favourites?api_key=live_vzh90sxxQD4wzv4QNkwFXm46QOiPbShUe5Y6LDQrm0Dopy1WstO9XkjVMML82qcS";
 
+const deleteURL = (id) => `https://api.thecatapi.com/v1/favourites/${id}?api_key=c08d415f-dea7-4a38-bb28-7b2188202e46`;
+
 const API_KEY = "live_vzh90sxxQD4wzv4QNkwFXm46QOiPbShUe5Y6LDQrm0Dopy1WstO9XkjVMML82qcS";
 
 const spanError = document.getElementById("error");
@@ -52,6 +54,10 @@ async function favCat() {
     if(res.status !== 200){
         spanError.innerText = "Hubo un error en el servidor código de error: " + res.status + data.message;
     }else{
+
+      
+  
+
         data.forEach(michi => {
             const div = document.getElementById('favoriteMichis');
             
@@ -61,7 +67,7 @@ async function favCat() {
             const btn = document.createElement('button');
             btn.setAttribute('class', 'dlt-btn');
             const btnText = document.createTextNode('x');
-      
+            btn.onclick = () => deleteFavorite(michi.id);
             div.appendChild(article);
             
             article.appendChild(img);
@@ -97,6 +103,25 @@ async function saveFavMichis(id){
 
       favCat();
 }
+
+
+
+async function deleteFavorite(id){
+  const res = await fetch(deleteURL(id), {
+      method: 'DELETE',
+  })
+
+//cuando el estado de la peticion es distinto de 200 utilizo .text(), en caso contrario utilizo .json()
+  if(res.status !==200){
+      const error = await res.text()
+      spanError.innerHTML = "ocurrio un error: " + error
+  }else{
+      const data = await res.json();
+      console.log('delete', data)
+      favCat()
+  }
+}
+
 
 const button = document.getElementById("rn-btn");
 

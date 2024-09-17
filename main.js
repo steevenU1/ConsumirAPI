@@ -2,6 +2,8 @@ const API_URL = "https://api.thecatapi.com/v1/images/search?limit=4";
 
 const FAV_URL = "https://api.thecatapi.com/v1/favourites?api_key=live_vzh90sxxQD4wzv4QNkwFXm46QOiPbShUe5Y6LDQrm0Dopy1WstO9XkjVMML82qcS";
 
+const UPLOAD_URL = "https://api.thecatapi.com/v1/images/upload"
+
 const deleteURL = (id) => `https://api.thecatapi.com/v1/favourites/${id}?api_key=c08d415f-dea7-4a38-bb28-7b2188202e46`;
 
 const API_KEY = "live_vzh90sxxQD4wzv4QNkwFXm46QOiPbShUe5Y6LDQrm0Dopy1WstO9XkjVMML82qcS";
@@ -121,6 +123,32 @@ async function deleteFavorite(id){
       favCat()
   }
 }
+
+async function uploadMichi(){
+  const form = document.getElementById("uploadingForm")
+  const formData = new FormData(form);
+
+  console.log(formData.get("file"))
+
+  const res = await fetch(UPLOAD_URL, {
+    method: "POST",
+    headers: {
+      "X-API-KEY": "live_vzh90sxxQD4wzv4QNkwFXm46QOiPbShUe5Y6LDQrm0Dopy1WstO9XkjVMML82qcS",
+    },
+    body: formData,
+  })
+
+  const data = await res.json()
+   if (res.status !== 200){
+    spanError.innerHTML = "hubo un error" + res.status + data.message
+      }else {
+   console.log({data})
+   console.log(data.url)
+    console.log("gato enviado")}
+
+}
+
+
 
 
 const button = document.getElementById("rn-btn");
